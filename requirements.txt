@@ -1,0 +1,4 @@
+opencv-python==4.10.0.84
+numpy==2.4.6
+pyserial==3.5
+sv-ttk==2.6.1
