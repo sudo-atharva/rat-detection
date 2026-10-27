@@ -8,6 +8,10 @@ a per-frame timestamp CSV (frames.csv) so post-processing can sync the two.
 live_tracking=False (rat_record.py): no tracking during the run, just video +
 accel graph; tracking and overlay are done by postprocess.py after the run.
 """
+import os
+
+os.environ.setdefault("OPENCV_LOG_LEVEL", "ERROR")  # silence camera-probe warnings; must be set before cv2 loads
+
 import csv
 import queue
 import threading
@@ -436,7 +440,6 @@ def main(live_tracking=True):
         ctypes.windll.shcore.SetProcessDpiAwareness(1)
     except (AttributeError, OSError):
         pass
-    cv2.utils.logging.setLogLevel(cv2.utils.logging.LOG_LEVEL_ERROR)  # silence camera-probe warnings
     App(tk.Tk(), live_tracking).root.mainloop()
 
 
