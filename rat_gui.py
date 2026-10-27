@@ -1,7 +1,7 @@
 """Rat heat-bed experiment GUI.
 
-Nano streams "<tempC>,<heater>,<accelPeak>" lines; we send "S<setpoint>" back
-every second (also serves as heartbeat - Nano cuts heater if PC goes silent).
+Nano streams "<tempC>,<heater>,<accelPeak>" lines; we send "S<setpoint>" and
+"T<seconds left>" back every second (setpoint for the heater, timer for the LCD).
 Camera is shown live and recorded during a run, with a CSV of sensor data and
 a per-frame timestamp CSV (frames.csv) so post-processing can sync the two.
 
